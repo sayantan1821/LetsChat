@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { SendOutlined, PictureOutlined } from '@ant-design/icons';
 import { sendMessage, isTyping } from 'react-chat-engine';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFileUpload, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 const MessageForm = (props) => {
   const [value, setValue] = useState('');
   const { chatId, creds } = props;
@@ -39,18 +39,19 @@ const MessageForm = (props) => {
       />
       <label htmlFor="upload-button">
         <span className="image-button">
-          <PictureOutlined className="picture-icon" />
+        <FontAwesomeIcon icon={faFileUpload} />
         </span>
       </label>
       <input
+        className= 'attachment'
         type="file"
         multiple={false}
         id="upload-button"
         style={{ display: 'none' }}
         onChange={handleUpload.bind(this)}
-      />
-      <button type="submit" className="send-button">
-        <SendOutlined className="send-icon" />
+       />
+      <button type="submit" className="send-button" >
+        <FontAwesomeIcon icon={faPaperPlane}  />
       </button>
     </form>
   );
